@@ -213,6 +213,8 @@ text_sensor:
         return {"Gum Health"};
       } else if (id(${id}_toothbrush_mode_id).state == 3) {
         return {"Deep Clean+"};
+      } else if (id(${id}_toothbrush_mode_id).state == 4) {
+        return {"Sensitive"};
       } else {
         return {};
       }
