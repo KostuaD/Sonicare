@@ -6,11 +6,6 @@
 #   (esphome/packages/sonicare.yaml) for each brush instance. The esp32_ble_tracker
 #   component uses an on_ble_advertise lambda to filter BLE advertisements by MAC.
 #
-# Notes:
-#   - Paths to local package files are relative to /config/esphome because you run
-#     esphome from that directory.
-#   - Keep secrets (Wi‑Fi, OTA password, API encryption key) in Home Assistant's secrets.yaml.
-#   - Consider pinning external packages to a commit/tag if you later switch to remote URLs.
 
 substitutions:
   # Device and entity naming substitutions used throughout the config
