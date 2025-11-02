@@ -199,5 +199,48 @@ text_sensor:
         return {};
       }
 
+  - platform: template
+    name: ${name} Mode
+    id: ${id}_toothbrush_mode
+    icon: "mdi:toothbrush-electric"
+    update_interval: never
+    lambda: |-
+      if (id(${id}_toothbrush_mode_id).state == 0) {
+        return {"Clean"};
+      } else if (id(${id}_toothbrush_mode_id).state == 1) {
+        return {"White+"};
+      } else if (id(${id}_toothbrush_mode_id).state == 2) {
+        return {"Gum Health"};
+      } else if (id(${id}_toothbrush_mode_id).state == 3) {
+        return {"Deep Clean+"};
+      } else {
+        return {};
+      }
+
+  - platform: template
+    name: ${name} Head
+    id: ${id}_toothbrush_head
+    icon: "mdi:toothbrush-electric"
+    update_interval: never
+    lambda: |-
+      if (id(${id}_toothbrush_head_nfc).state == 1) {
+        if (id(${id}_toothbrush_head_id).state == 0) {
+          return {"Adaptive Clean"};
+        } else if (id(${id}_toothbrush_head_id).state == 1) {
+          return {"Adaptive White"};
+        } else if (id(${id}_toothbrush_head_id).state == 2) {
+          return {"Tongue Care"};
+        } else if (id(${id}_toothbrush_head_id).state == 3) {
+          return {"Adaptive Gums"};
+        } else if (id(${id}_toothbrush_head_id).state == 4) {
+          return {"A3 Premium All-in-One"};
+        } else {
+          return {"Unknown"};
+        }
+      } else if (id(${id}_toothbrush_head_nfc).state == 0) {
+        return {"N/A"};
+      } else {
+        return {};
+      }
 
 
